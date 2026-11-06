@@ -13,7 +13,7 @@ Live list: `;k` (fzf keymaps) or `:verbose map <key>`. Roadmap/verification: `~/
 | `gy` | type definition |
 | `gI` | implementations |
 | `gr` or `gh` | references |
-| `gO` | document symbols |
+| `gO` | document symbols (replaces the outline sidebar) |
 | `<leader>ls` | workspace symbols |
 | `<leader>la` | code action (n, v) |
 | `<leader>lr` | rename |
@@ -21,7 +21,6 @@ Live list: `;k` (fzf keymaps) or `:verbose map <key>`. Roadmap/verification: `~/
 | `]d` / `[d` | next / prev diagnostic, any severity (Neovim default) |
 | `<C-w>d` | diagnostics under cursor (Neovim default) |
 | `]]` / `[[` | next / prev reference of word under cursor (illuminate); `<M-n>` / `<M-p>` same |
-| `<leader>a` | outline (symbols sidebar) |
 | `;d` | document diagnostics (fzf) |
 | `;t` | TODO / FIX / FIXME (fzf) |
 
@@ -104,7 +103,7 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 
 ## Commands
 
-`:CodeDiff` (+ `history`, `install`), `:Neotree`, `:Outline`, `:FzfLua <picker>`, `:Mason`,
+`:CodeDiff` (+ `history`, `install`), `:Neotree`, `:FzfLua <picker>`, `:Mason`,
 `:lua vim.pack.update()` (review, then `:write` to confirm; `:quit` to discard), `:TSUpdate`, `:Gitsigns <cmd>`.
 
 ## Capabilities (what is installed)
@@ -115,7 +114,7 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 | colors / ui | kanagawa-dragon, lualine, incline (filename tag), devicons, snacks.nvim (dashboard only), ui2 |
 | syntax | nvim-treesitter (main) + treesitter folding |
 | LSP | nvim-lspconfig + built-in `vim.lsp`, mason.nvim |
-| navigation | fzf-lua, neo-tree, outline.nvim, vim-illuminate, nvim-tmux-navigation, todo-comments |
+| navigation | fzf-lua, neo-tree, vim-illuminate, nvim-tmux-navigation, todo-comments |
 | git review | gitsigns, codediff.nvim, `utils/agent.lua` |
 | notes | vimwiki |
 

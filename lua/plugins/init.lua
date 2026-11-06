@@ -37,7 +37,6 @@ vim.pack.add({
   { src = gh("nvim-neo-tree/neo-tree.nvim"), version = vim.version.range("3") },
   gh("RRethy/vim-illuminate"),
   gh("folke/todo-comments.nvim"),
-  gh("hedyhli/outline.nvim"),
   -- notes
   { src = gh("vimwiki/vimwiki"), version = "v2023.04.04_1" },
 })

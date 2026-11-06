@@ -64,7 +64,6 @@ map("n", ";t", function()
 end, { desc = "Todo/Fix/Fixme" })
 
 map("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "File tree" })
-map("n", "<leader>a", "<cmd>Outline<cr>", { desc = "Outline" })
 
 local ill = require("illuminate")
 map("n", "]]", function()

@@ -1,6 +1,5 @@
 require("fzf-lua").setup({})
 require("todo-comments").setup({})
-require("outline").setup({})
 
 require("illuminate").configure({
   delay = 150,
@@ -8,7 +7,7 @@ require("illuminate").configure({
   large_file_overrides = { providers = { "lsp" } },
   under_cursor = true,
   providers = { "lsp", "treesitter" },
-  filetypes_denylist = { "neo-tree", "Outline", "fzf", "vimwiki" },
+  filetypes_denylist = { "neo-tree", "fzf", "vimwiki" },
 })
 vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "LspReferenceText" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "LspReferenceRead" })
