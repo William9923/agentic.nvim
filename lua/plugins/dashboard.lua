@@ -5,20 +5,31 @@ local function in_git()
   return Snacks.git.get_root() ~= nil
 end
 
-local function git_pane(title, cmd, height)
-  return {
-    pane = 2,
-    icon = " ",
-    title = title,
-    section = "terminal",
-    enabled = in_git,
-    cmd = cmd,
-    height = height,
-    ttl = 5 * 60,
-    indent = 2,
-    gap = 1,
-    padding = 1,
-  }
+-- Plain text pane instead of a snacks terminal: a terminal prints "[Process exited N]" and shows
+-- git's stderr. Here a failing or slow git just yields an empty pane (always "exit 0").
+-- shortcut: runs synchronously (1.5s cap); upgrade to async if huge repos slow startup.
+local function git_pane(title, cmd, empty_text)
+  return function()
+    if not in_git() then
+      return {}
+    end
+    local ok, res = pcall(function()
+      return vim.system(cmd, { text = true, timeout = 1500 }):wait()
+    end)
+    local lines = {}
+    if ok and res.code == 0 then
+      lines = vim.split(vim.trim(res.stdout or ""), "\n", { trimempty = true })
+    end
+    if #lines == 0 then
+      lines = { empty_text }
+    end
+    local items = { { pane = 2, icon = " ", title = title, padding = 1 } }
+    for _, line in ipairs(lines) do
+      items[#items + 1] = { pane = 2, text = { { "  " .. vim.fn.strcharpart(line, 0, 56), hl = "SnacksDashboardDesc" } } }
+    end
+    items[#items].padding = 1
+    return items
+  end
 end
 
 require("snacks").setup({
@@ -55,8 +66,8 @@ require("snacks").setup({
       function()
         return { pane = 1, align = "center", text = { { "⚡ " .. #vim.pack.get() .. " plugins", hl = "footer" } } }
       end,
-      git_pane("Git Status", "git status --short", 7),
-      git_pane("Git History", "git log --all --decorate --oneline --graph", 15),
+      git_pane("Git Status", { "git", "status", "--short" }, "clean"),
+      git_pane("Git History", { "git", "log", "--all", "--decorate", "--oneline", "--graph", "-n", "15" }, "no commits yet"),
     },
   },
 })
