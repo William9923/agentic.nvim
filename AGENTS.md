@@ -1,6 +1,7 @@
 # NEOVIM CONFIG (native 0.12, no plugin-manager framework)
 
 Plain Neovim >= 0.12: `vim.pack`, `vim.lsp.enable` + `after/lsp/<name>.lua`, ui2. Reading/review-focused for agentic coding.
+All keymaps + capabilities: `KEYMAPS.md` (update it when you add/change a key).
 Roadmap + verification per step: `~/vimwiki/specs/neovim-update.wiki`. Old LazyVim config: `~/.config/nvim-lazyvim-old`, tarball in `~/backups/`.
 
 ## STRUCTURE
