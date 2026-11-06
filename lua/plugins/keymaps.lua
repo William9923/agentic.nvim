@@ -39,12 +39,12 @@ map("n", "<leader>dh", "<cmd>CodeDiff history %<cr>", { desc = "CodeDiff: file h
 map("n", "<leader>dH", "<cmd>CodeDiff history<cr>", { desc = "CodeDiff: repo history" })
 
 -- Agent context helpers
-map("n", "<leader>yf", function()
+map({ "n", "x" }, "<leader>yf", function()
   agent.yank_path(false)
-end, { desc = "Yank rel path#L" })
-map("n", "<leader>yp", function()
+end, { desc = "Yank rel path#L (visual: range)" })
+map({ "n", "x" }, "<leader>yp", function()
   agent.yank_path(true)
-end, { desc = "Yank abs path#L" })
+end, { desc = "Yank abs path#L (visual: range)" })
 map("x", "<leader>cc", agent.yank_block, { desc = "Yank selection as code block" })
 
 -- Reading code: LSP + pickers + tree (existing habits kept)

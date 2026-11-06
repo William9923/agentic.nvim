@@ -57,8 +57,8 @@ Fzf git: `;gs` status, `;gc` commits, `<leader>fg` git files. Dashboard shows gi
 
 | Key | Action |
 |-----|--------|
-| `<leader>yf` | copy `relative/path#L<line>` |
-| `<leader>yp` | copy `/absolute/path#L<line>` |
+| `<leader>yf` (n, visual) | copy `relative/path#L<line>`; visual = `#L<a>-<b>` range |
+| `<leader>yp` (n, visual) | same with the absolute path |
 | `<leader>cc` (visual) | copy selection as a fenced block with `filename="..." line=a-b` |
 
 ## Finding things
@@ -85,6 +85,7 @@ Fzf git: `;gs` status, `;gc` commits, `<leader>fg` git files. Dashboard shows gi
 | `<C-s>` | save |
 | `<C-a>` | select all |
 | `Q` (`<S-q>`) | delete buffer (`:bdelete!`) |
+| `<leader>/` | toggle comment (line; visual = selection). Native `gc` / `gcc` also work |
 | `<leader>h` | clear search highlight |
 | `<leader>z` | fold to current indent |
 | `v` `<` `>` | indent and stay selected; `J` / `K` move selected lines |
@@ -96,7 +97,7 @@ Fzf git: `;gs` status, `;gc` commits, `<leader>fg` git files. Dashboard shows gi
 
 ## Neovim 0.12 built-ins worth knowing
 
-`gc` / `gcc` comment (native; `mini.comment` is not installed), `gx` open URL/file, `]b`/`[b` buffers, `]q`/`[q` quickfix,
+`gc` / `gcc` comment (native; `mini.comment` is not installed; `<leader>/` is a shortcut to them), `gx` open URL/file, `]b`/`[b` buffers, `]q`/`[q` quickfix,
 `]<Space>`/`[<Space>` blank line, `<C-s>` in insert = signature help (the `<C-s>` normal map above is save),
 `:restart`, `:Inspect`, `:InspectTree`, `:lsp`, `:checkhealth`. ui2 handles messages/cmdline.
 Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` / `<leader>l*`).
@@ -121,4 +122,4 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 ## Not available yet (planned in the spec)
 
 Completion (step 6), formatting / `<leader>ff` (step 8), neotest, lazygit float, rust-analyzer.
-Dropped from the LazyVim setup: ai_notes (`<leader>an/al/ad`), `;l` Lazy dashboard, `<leader>/` comment toggle (use `gc`), noice.
+Dropped from the LazyVim setup: ai_notes (`<leader>an/al/ad`), `;l` Lazy dashboard, noice.

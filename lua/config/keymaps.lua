@@ -14,6 +14,10 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
+-- comment: remap = true because gc / gcc are Neovim default mappings
+keymap("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment line" })
+keymap("x", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
+
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<S-q>", "<cmd>bdelete!<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)

@@ -6,14 +6,20 @@ local function copy(text)
   vim.notify("Copied: " .. text)
 end
 
---- Path (relative to cwd, or absolute) + #L<line>
+--- Path (relative to cwd, or absolute) + #L<line>, or #L<a>-<b> for a visual selection
 function M.yank_path(absolute)
   local name = vim.api.nvim_buf_get_name(0)
   if name == "" then
     return vim.notify("No file name", vim.log.levels.WARN)
   end
   local path = absolute and vim.fn.fnamemodify(name, ":p") or vim.fn.fnamemodify(name, ":.")
-  copy(path .. "#L" .. vim.fn.line("."))
+  local range = "#L" .. vim.fn.line(".")
+  if vim.fn.mode():match("^[vV\22]") then
+    local a, b = vim.fn.line("v"), vim.fn.line(".")
+    range = a == b and "#L" .. a or ("#L%d-%d"):format(math.min(a, b), math.max(a, b))
+    vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
+  end
+  copy(path .. range)
 end
 
 --- Visual selection as ```<ft> filename="..." line=a-b fenced block
