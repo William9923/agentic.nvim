@@ -93,3 +93,18 @@ map("n", "gK", function()
   end
   vim.notify("No help for " .. word, vim.log.levels.WARN)
 end, { desc = "Help for word under cursor" })
+
+-- gr = references (LazyVim habit). Drop Neovim's default gr* family, otherwise `gr` waits for timeoutlen.
+for _, k in ipairs({ "grr", "gra", "grn", "gri", "grt", "grx" }) do
+  pcall(vim.keymap.del, "n", k)
+end
+pcall(vim.keymap.del, "x", "gra")
+map("n", "gr", fzf.lsp_references, { desc = "References" })
+
+-- next / prev ERROR diagnostic (]d / [d stay Neovim defaults for any severity)
+map("n", "]e", function()
+  vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR, float = true })
+end, { desc = "Next error" })
+map("n", "[e", function()
+  vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR, float = true })
+end, { desc = "Prev error" })
