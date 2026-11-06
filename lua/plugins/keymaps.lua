@@ -80,3 +80,16 @@ map("n", "gI", vim.lsp.buf.implementation, { desc = "Implementation" })
 map("n", "gh", fzf.lsp_references, { desc = "References" })
 map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
 map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+
+-- K = LSP hover (default in 0.12). gK = full :help for the dotted name under cursor (vim.keymap.set, vim.api.nvim_*)
+map("n", "gK", function()
+  vim.opt_local.iskeyword:append(".")
+  local word = vim.fn.expand("<cword>"):gsub("^vim%.api%.", ""):gsub("%.$", "")
+  vim.opt_local.iskeyword:remove(".")
+  for _, tag in ipairs({ word .. "()", word, vim.fn.expand("<cword>") }) do
+    if pcall(vim.cmd.help, tag) then
+      return
+    end
+  end
+  vim.notify("No help for " .. word, vim.log.levels.WARN)
+end, { desc = "Help for word under cursor" })
