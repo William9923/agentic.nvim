@@ -22,6 +22,7 @@ vim.pack.add({
   gh("nvim-lualine/lualine.nvim"),
   gh("b0o/incline.nvim"),
   gh("alexghergh/nvim-tmux-navigation"),
+  gh("folke/snacks.nvim"), -- dashboard only
   -- git review
   gh("lewis6991/gitsigns.nvim"),
   gh("esmuellert/codediff.nvim"),
@@ -42,6 +43,7 @@ vim.pack.add({
 })
 
 require("plugins.ui")
+require("plugins.dashboard")
 require("plugins.git")
 require("plugins.treesitter")
 require("plugins.lsp")

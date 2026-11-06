@@ -63,7 +63,7 @@ opt.foldnestmax = 4
 vim.cmd([[
   augroup remember_folds
     autocmd!
-    autocmd BufWinLeave *.* mkview
+    autocmd BufWinLeave *.* silent! mkview
     autocmd BufWinEnter *.* silent! loadview
   augroup end
 ]])
