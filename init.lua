@@ -1,5 +1,5 @@
 -- Native Neovim >= 0.12 setup: vim.pack + vim.lsp.enable, no plugin manager framework.
--- Reading-focused minimal setup; roadmap in ~/vimwiki/specs/neovim-update.wiki
+-- Reading-focused setup.
 vim.loader.enable()
 
 vim.g.mapleader = " "

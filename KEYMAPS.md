@@ -1,7 +1,7 @@
 # Keymaps and capabilities
 
 Leader = `<Space>`. Source of truth is the code: core keys in `lua/config/keymaps.lua`, plugin keys in `lua/plugins/keymaps.lua`.
-Live list: `;k` (fzf keymaps) or `:verbose map <key>`. Roadmap/verification: `~/vimwiki/specs/neovim-update.wiki`.
+Live list: `;k` (fzf keymaps) or `:verbose map <key>`.
 
 ## Reading code (LSP, all lists open in fzf-lua; one result jumps directly)
 
@@ -121,7 +121,7 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 | git review | gitsigns, codediff.nvim, `utils/agent.lua` |
 | notes | vimwiki |
 
-## Not available yet (planned in the spec)
+## Not available yet
 
 Completion (step 6), neotest, lazygit float, rust-analyzer.
 Dropped from the LazyVim setup: ai_notes (`<leader>an/al/ad`), `;l` Lazy dashboard, noice.
