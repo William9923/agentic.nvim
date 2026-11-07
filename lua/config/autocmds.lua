@@ -23,3 +23,11 @@ au("TextYankPost", {
     vim.hl.on_yank()
   end,
 })
+
+au("BufWritePre", {
+  group = aug,
+  pattern = { "*.go", "*.py" },
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
+  end,
+})

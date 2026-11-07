@@ -88,6 +88,7 @@ Fzf git: `;gs` status, `;gc` commits, `<leader>fg` git files. Dashboard shows gi
 | `<leader>/` | toggle comment (line; visual = selection). Native `gc` / `gcc` also work |
 | `<leader>h` | clear search highlight |
 | `<leader>z` | fold to current indent |
+| `<leader>ff` | format buffer (visual mode: selected range; LSP fallback) |
 | `v` `<` `>` | indent and stay selected; `J` / `K` move selected lines |
 | `te` | new tab |
 | `<leader>ss` / `sv` / `sq` | split / vsplit / close window |
@@ -104,7 +105,7 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 
 ## Commands
 
-`:CodeDiff` (+ `history`, `install`), `:Neotree`, `:FzfLua <picker>`, `:Mason`,
+`:CodeDiff` (+ `history`, `install`), `:Neotree`, `:FzfLua <picker>`, `:Mason`, `:ConformInfo`,
 `:lua vim.pack.update()` (review, then `:write` to confirm; `:quit` to discard), `:TSUpdate`, `:Gitsigns <cmd>`.
 
 ## Capabilities (what is installed)
@@ -115,11 +116,12 @@ Removed on purpose: Neovim's `grr gra grn gri grt grx` (replaced by `gr` / `gI` 
 | colors / ui | kanagawa-dragon, lualine, incline (filename tag), devicons, snacks.nvim (dashboard only), ui2 |
 | syntax | nvim-treesitter (main) + treesitter folding |
 | LSP | nvim-lspconfig + built-in `vim.lsp`, mason.nvim |
+| formatting | conform.nvim (stylua, goimports, ruff; LSP fallback; Go/Python on save) |
 | navigation | fzf-lua, neo-tree, vim-illuminate, nvim-tmux-navigation, todo-comments |
 | git review | gitsigns, codediff.nvim, `utils/agent.lua` |
 | notes | vimwiki |
 
 ## Not available yet (planned in the spec)
 
-Completion (step 6), formatting / `<leader>ff` (step 8), neotest, lazygit float, rust-analyzer.
+Completion (step 6), neotest, lazygit float, rust-analyzer.
 Dropped from the LazyVim setup: ai_notes (`<leader>an/al/ad`), `;l` Lazy dashboard, noice.

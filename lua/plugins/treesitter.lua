@@ -2,9 +2,34 @@ vim.filetype.add({ extension = { mdx = "mdx" } })
 vim.treesitter.language.register("markdown", "mdx")
 
 local parsers = {
-  "go", "gomod", "gowork", "gosum", "python", "rst", "toml", "terraform", "hcl", "regex",
-  "markdown", "markdown_inline", "ruby", "gitignore", "typescript", "rust", "sql", "html",
-  "javascript", "json", "tsx", "bash", "lua", "vim", "dockerfile", "vue", "css", "yaml",
+  "go",
+  "gomod",
+  "gowork",
+  "gosum",
+  "python",
+  "rst",
+  "toml",
+  "terraform",
+  "hcl",
+  "regex",
+  "markdown",
+  "markdown_inline",
+  "ruby",
+  "gitignore",
+  "typescript",
+  "rust",
+  "sql",
+  "html",
+  "javascript",
+  "json",
+  "tsx",
+  "bash",
+  "lua",
+  "vim",
+  "dockerfile",
+  "vue",
+  "css",
+  "yaml",
 }
 require("nvim-treesitter").install(parsers) -- async, no-op for installed parsers
 

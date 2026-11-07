@@ -2,8 +2,16 @@
 require("mason").setup() -- also puts ~/.local/share/nvim/mason/bin on PATH
 
 vim.lsp.enable({
-  "lua_ls", "yamlls", "vtsls", "gopls", -- configured before
-  "pyright", "ruff", "terraformls", "jsonls", "dockerls", "docker_compose_language_service", -- were LazyVim extras
+  "lua_ls",
+  "yamlls",
+  "vtsls",
+  "gopls", -- configured before
+  "pyright",
+  "ruff",
+  "terraformls",
+  "jsonls",
+  "dockerls",
+  "docker_compose_language_service", -- were LazyVim extras
 })
 
 vim.lsp.inlay_hint.enable(true)

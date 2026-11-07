@@ -30,6 +30,7 @@ vim.pack.add({
   { src = gh("nvim-treesitter/nvim-treesitter"), version = "main" },
   gh("neovim/nvim-lspconfig"),
   gh("mason-org/mason.nvim"),
+  gh("stevearc/conform.nvim"),
   -- navigate / read
   gh("ibhagwan/fzf-lua"),
   gh("nvim-lua/plenary.nvim"),
@@ -46,5 +47,6 @@ require("plugins.dashboard")
 require("plugins.git")
 require("plugins.treesitter")
 require("plugins.lsp")
+require("plugins.formatting")
 require("plugins.editor")
 require("plugins.keymaps") -- last: every plugin is set up by now

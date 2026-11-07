@@ -25,7 +25,8 @@ local function git_pane(title, cmd, empty_text)
     end
     local items = { { pane = 2, icon = " ", title = title, padding = 1 } }
     for _, line in ipairs(lines) do
-      items[#items + 1] = { pane = 2, text = { { "  " .. vim.fn.strcharpart(line, 0, 56), hl = "SnacksDashboardDesc" } } }
+      items[#items + 1] =
+        { pane = 2, text = { { "  " .. vim.fn.strcharpart(line, 0, 56), hl = "SnacksDashboardDesc" } } }
     end
     items[#items].padding = 1
     return items
@@ -67,7 +68,11 @@ require("snacks").setup({
         return { pane = 1, align = "center", text = { { "⚡ " .. #vim.pack.get() .. " plugins", hl = "footer" } } }
       end,
       git_pane("Git Status", { "git", "status", "--short" }, "clean"),
-      git_pane("Git History", { "git", "log", "--all", "--decorate", "--oneline", "--graph", "-n", "15" }, "no commits yet"),
+      git_pane(
+        "Git History",
+        { "git", "log", "--all", "--decorate", "--oneline", "--graph", "-n", "15" },
+        "no commits yet"
+      ),
     },
   },
 })
