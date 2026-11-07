@@ -6,6 +6,7 @@ vim.lsp.enable({
   "yamlls",
   "vtsls",
   "gopls", -- configured before
+  "jdtls",
   "pyright",
   "ruff",
   "terraformls",

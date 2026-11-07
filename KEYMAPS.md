@@ -24,7 +24,7 @@ Live list: `;k` (fzf keymaps) or `:verbose map <key>`. Roadmap/verification: `~/
 | `;d` | document diagnostics (fzf) |
 | `;t` | TODO / FIX / FIXME (fzf) |
 
-Servers: lua_ls, gopls, vtsls (+Vue), yamlls, pyright + ruff, terraformls, jsonls, dockerls, docker_compose. Inlay hints on.
+Servers: lua_ls, gopls, jdtls, vtsls (+Vue), yamlls, pyright + ruff, terraformls, jsonls, dockerls, docker_compose. Inlay hints on.
 Server settings: `after/lsp/<name>.lua`. Add a server: `vim.lsp.enable` in `lua/plugins/lsp.lua`. Install binaries: `:Mason`.
 
 ## Reviewing agent changes (git)
