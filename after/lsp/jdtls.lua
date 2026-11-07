@@ -5,7 +5,7 @@ local java25 = vim.fn.systemlist({ "mise", "where", "java@temurin-25" })[1]
 local settings = {
   java = {
     eclipse = { downloadSources = true },
-    import = { gradle = { enabled = false } },
+    import = { gradle = { enabled = true, java = { home = java17 } } },
     maven = { downloadSources = true },
     configuration = {
       runtimes = {
